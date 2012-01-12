@@ -429,6 +429,12 @@ service drm /system/bin/drmserver
     class main
     user drm
     group system inet drmrpc
+    
+service userinit /system/xbin/busybox run-parts /system/etc/init.d
+    oneshot
+    class late_start
+    user root
+    group root
 
 service media /system/bin/mediaserver
     class main
